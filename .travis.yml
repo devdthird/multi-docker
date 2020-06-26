@@ -16,7 +16,7 @@ after_success:
   - docker build -t bhuwanbhasker/multi-worker ./worker
   #Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  #Push image to docker hub
+  #Push image to docker hu
   - docker push bhuwanbhasker/multi-client
   - docker push bhuwanbhasker/multi-nginx
   - docker push bhuwanbhasker/multi-api
@@ -26,10 +26,10 @@ deploy:
   edge: true
   provider: elasticbeanstalk
   region: us-east-2
-  app: multi-docker
-  env: MultiDocker-env
+  app: docker-app-aws
+  env: DockerAppAws-env
   bucket_name: elasticbeanstalk-us-east-2-551180489795
-  bucket_path: docker-multi
+  bucket_path: docker-app-aws
   on:
     branch: master
   access_key_id: $AWS_ACCESS_KEY
